@@ -8,12 +8,19 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
+import 'journal/controller/journal_provider.dart';
+
 
 bool isFirstTime = true;
 
 
  Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  FlutterError.onError = (FlutterErrorDetails details) {
+    print('flutter error: ${details.exception}');
+    print('Stack: ${details.stack}');
+  };
 
   // for loading env file
   await dotenv.load(fileName:".env");
@@ -37,15 +44,20 @@ bool isFirstTime = true;
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) {
-          final auth = AuthProvider();
-          auth.checkUser();
-          return auth;
-        }
-        )
+        ChangeNotifierProvider(
+          create: (_) {
+            final auth = AuthProvider();
+            auth.checkUser();
+            return auth;
+          },
+        ),
+
+        ChangeNotifierProvider(
+          create: (_) => JournalProvider(),
+        ),
       ],
       child: const MyApp(),
-    )
+    ),
   );
 }
 
