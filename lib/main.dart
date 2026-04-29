@@ -2,12 +2,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:journal_application/auth/controller/auth_provider.dart';
 import 'package:journal_application/firebase_options.dart';
+import 'package:journal_application/navigation/nav_provider.dart';
+import 'package:journal_application/profile/controller/profile_provider.dart';
 import 'package:journal_application/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-
 import 'journal/controller/journal_provider.dart';
 
 
@@ -33,6 +34,7 @@ bool isFirstTime = true;
   final supabaseUrl = dotenv.env['SUPABASE_URL']!;
   final supabaseKey = dotenv.env['SUPABASE_KEY']!;
 
+
   await Supabase.initialize(
     url: supabaseUrl,
     anonKey: supabaseKey,
@@ -55,6 +57,12 @@ bool isFirstTime = true;
         ChangeNotifierProvider(
           create: (_) => JournalProvider(),
         ),
+        ChangeNotifierProvider(
+            create: (_)=> NavProvider()
+        ),
+        ChangeNotifierProvider(
+          create: (_)=> ProfileProvider(),
+        )
       ],
       child: const MyApp(),
     ),

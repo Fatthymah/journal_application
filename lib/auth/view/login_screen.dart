@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:journal_application/app_constants/colors.dart';
 import 'package:journal_application/auth/view/signup_screen.dart';
 import 'package:journal_application/journal/view/home_screen.dart';
+import 'package:journal_application/screens/nav_bar.dart';
 import 'package:provider/provider.dart';
 import '../controller/auth_provider.dart';
 
@@ -113,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     if (auth.user != null) {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (_) => const HomeScreen()),
+                        MaterialPageRoute(builder: (_) => const NavBar()),
                       );
                     }
                   },
@@ -164,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     if (auth.user != null) {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (_) => const HomeScreen()),
+                        MaterialPageRoute(builder: (_) => const NavBar()),
                       );
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(

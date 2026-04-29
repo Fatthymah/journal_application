@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../app_constants/colors.dart';
 import '../../journal/view/home_screen.dart';
+import '../../screens/nav_bar.dart';
 import '../controller/auth_provider.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -140,7 +141,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     if (auth.user != null) {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (_) => const HomeScreen()),
+                        MaterialPageRoute(builder: (_) => const NavBar()),
                       );
                     }
                   },
