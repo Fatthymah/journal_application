@@ -97,6 +97,8 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
                   return;
                 }
 
+                final provider = Provider.of<JournalProvider>(context,listen: false);
+
                 if (widget.journal == null) {
                   // create
                   await provider.addJournal(
@@ -119,7 +121,7 @@ class _AddJournalScreenState extends State<AddJournalScreen> {
                     tagsController.text,
                     userId,
                   );
-                  print("Updated");
+                  print("Insert success");
                 }
 
                 Navigator.pop(context);

@@ -2,11 +2,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:journal_application/app_constants/colors.dart';
 import 'package:journal_application/app_constants/texts.dart';
-import 'package:journal_application/journal/view/home_screen.dart';
 import 'package:provider/provider.dart';
 import '../auth/controller/auth_provider.dart';
 import '../auth/view/login_screen.dart';
 import '../main.dart';
+import 'nav_bar.dart';
 import 'onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -37,11 +37,11 @@ class _SplashScreenState extends State<SplashScreen> {
         );
       }
 
-      // Already logged in - HomeScreen
+      // Already logged in - NavBar
       else if (auth.user != null) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (_) => const HomeScreen()),
+          MaterialPageRoute(builder: (_) => const NavBar()),
         );
       }
 

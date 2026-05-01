@@ -53,19 +53,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           Icon(Icons.search, color: AppColors.textPrimary),
-
-          IconButton(
-            onPressed: () async {
-              await auth.logout();
-
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (_) => const LoginScreen()),
-                    (route) => false,
-              );
-            },
-            icon: Icon(Icons.logout, color: AppColors.textPrimary),
-          ),
         ],
       ),
 
