@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../app_constants/colors.dart';
-import '../../journal/view/home_screen.dart';
 import '../../screens/nav_bar.dart';
 import '../controller/auth_provider.dart';
 

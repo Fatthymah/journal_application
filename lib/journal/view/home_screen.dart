@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart' hide AuthProvider;
 import 'package:flutter/material.dart';
-import 'package:journal_application/auth/view/login_screen.dart';
 import 'package:provider/provider.dart';
 import '../../../auth/controller/auth_provider.dart';
 import '../../../app_constants/colors.dart';
